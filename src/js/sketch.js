@@ -7,16 +7,6 @@ let quotes = [];
 let mangaPanels = [];
 let currentQuoteIndex = 0;
 
-// Citas famosas de manga
-const famousQuotes = [
-  { text: "No huyas de ti mismo", source: "Evangelion" },
-  { text: "El único monstruo aquí soy yo", source: "Monster" },
-  { text: "Si no luchas, no puedes ganar", source: "Attack on Titan" },
-  { text: "Seré el dios del nuevo mundo", source: "Death Note" },
-  { text: "No tengo enemigos", source: "Vinland Saga" },
-  { text: "¿Quién eres tú? ¿Quién soy yo?", source: "Perfect Blue" }
-];
-
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('p5-canvas');
@@ -26,11 +16,6 @@ function setup() {
   // Crear partículas
   for (let i = 0; i < 50; i++) {
     particles.push(new Particle());
-  }
-  
-  // Crear elementos de texto flotantes
-  for (let i = 0; i < 3; i++) {
-    quotes.push(new FloatingQuote(famousQuotes[i]));
   }
 }
 
