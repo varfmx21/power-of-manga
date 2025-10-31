@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora la sociedad a través del manga. Análisis crítico de obras que cuestionan el poder, la identidad y la justicia.">
+  <meta name="keywords" content="manga, crítica social, análisis, Psycho-Pass, Death Note, Monster, Attack on Titan">
+  <title>El poder del manga</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📖</text></svg>">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+  
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Canvas de p5.js para animación de fondo -->
+  <div id="p5-canvas"></div>
+
+  <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in" data-text="Manga & Sociedad">
+        El poder del manga
+      </h1>
+      <p class="hero-subtitle fade-in-delay-1">
+        Explora el mundo del manga. Descubre cómo estas obras maestras cuestionan 
+        el poder, la identidad, la justicia y la verdad en nuestro mundo moderno.
+      </p>
+      <a href="#questions" class="btn btn-primary fade-in-delay-2 glow">
+        Comienza la reflexión
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECCIÓN DE PREGUNTAS INTERACTIVAS
+       ======================================== -->
+  <section id="questions" class="container">
+    <div class="text-center" style="margin-bottom: 4rem;">
+      <h2 class="scroll-reveal">Preguntas que nos definen</h2>
+      <p class="scroll-reveal" style="max-width: 700px; margin: 1rem auto; color: var(--text-secondary);">
+        Cada pregunta te llevará a descubrir mangas que exploran temas profundos sobre la sociedad, 
+        la ética y la condición humana.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <!-- PREGUNTA 1: CONTROL -->
+      <div class="card question-card scroll-reveal" data-category="control">
+        <div class="card-icon">🎭</div>
+        <div class="card-header">
+          <h3 class="card-title">¿Crees que tienes el control?</h3>
+          <p class="card-subtitle">Libertad vs Determinismo</p>
+        </div>
+        <div class="card-body">
+          <p>Explora obras que cuestionan nuestra autonomía en un mundo de algoritmos, vigilancia y sistemas que deciden por nosotros.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" onclick="window.appFunctions.showMangaList('control')">
+            Descubrir
+          </button>
+        </div>
+        <div id="control-content" class="manga-content hidden" style="margin-top: 2rem;"></div>
+      </div>
+
+      <!-- PREGUNTA 2: VERDAD -->
+      <div class="card question-card scroll-reveal" data-category="verdad">
+        <div class="card-icon">🔍</div>
+        <div class="card-header">
+          <h3 class="card-title">¿Qué precio tiene la verdad?</h3>
+          <p class="card-subtitle">Realidad vs Percepción</p>
+        </div>
+        <div class="card-body">
+          <p>Sumérgete en historias donde la búsqueda de la verdad puede destruirte o liberarte, donde la realidad es más compleja de lo que parece.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" onclick="window.appFunctions.showMangaList('verdad')">
+            Descubrir
+          </button>
+        </div>
+        <div id="verdad-content" class="manga-content hidden" style="margin-top: 2rem;"></div>
+      </div>
+
+      <!-- PREGUNTA 3: JUSTICIA -->
+      <div class="card question-card scroll-reveal" data-category="justicia">
+        <div class="card-icon">⚖️</div>
+        <div class="card-header">
+          <h3 class="card-title">¿La justicia puede existir sin violencia?</h3>
+          <p class="card-subtitle">Ética vs Supervivencia</p>
+        </div>
+        <div class="card-body">
+          <p>Descubre narrativas que exploran el ciclo de violencia, la venganza y la posibilidad de paz en un mundo conflictivo.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" onclick="window.appFunctions.showMangaList('justicia')">
+            Descubrir
+          </button>
+        </div>
+        <div id="justicia-content" class="manga-content hidden" style="margin-top: 2rem;"></div>
+      </div>
+
+      <!-- PREGUNTA 4: IDENTIDAD -->
+      <div class="card question-card scroll-reveal" data-category="identidad">
+        <div class="card-icon">🪞</div>
+        <div class="card-header">
+          <h3 class="card-title">¿Hasta qué punto la sociedad moldea tu identidad?</h3>
+          <p class="card-subtitle">Yo vs Mundo</p>
+        </div>
+        <div class="card-body">
+          <p>Explora la alienación, la búsqueda de uno mismo y cómo las presiones sociales distorsionan nuestra percepción de quiénes somos.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" onclick="window.appFunctions.showMangaList('identidad')">
+            Descubrir
+          </button>
+        </div>
+        <div id="identidad-content" class="manga-content hidden" style="margin-top: 2rem;"></div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer style="background: var(--bg-card); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 3rem 0; margin-top: 4rem;">
+    <div class="container text-center">
+      <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <a href="#hero" style="color: var(--text-secondary);">Inicio</a>
+        <a href="#questions" style="color: var(--text-secondary);">Preguntas</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.75rem;">
+        © 2025 Manga & Sociedad. Proyecto educativo sin fines comerciales.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       SCRIPTS
+       ======================================== -->
+  <script src="src/js/data.js"></script>
+  <script src="src/js/interactions.js"></script>
+  <script src="src/js/sketch.js"></script>
+
+</body>
+</html>
